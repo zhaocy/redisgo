@@ -13,7 +13,7 @@
 ## 安装
 
 ```sh
-go get -u github.com/aiscrm/cache
+go get -u github.com/ww169920503/cache
 ```
 
 ## 快速开始
