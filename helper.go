@@ -23,3 +23,8 @@ func String(reply interface{}, err error) (string, error) {
 func Bool(reply interface{}, err error) (bool, error) {
 	return redis.Bool(reply, err)
 }
+
+//Strings is a helper that converts an array command reply to a []string. If
+func Strings(reply interface{}, err error) ([]string, error) {
+	return redis.Strings(reply, err)
+}

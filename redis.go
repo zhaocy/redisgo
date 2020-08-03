@@ -499,6 +499,21 @@ func (c *Cacher) LRange(key string, start, end int) (interface{}, error) {
 	return c.Do("LRANGE", c.getKey(key), start, end)
 }
 
+// SADD 将一个 member 元素及值加入到集 key 当中。
+func (c *Cacher) SAdd(key string, member string) (reply interface{}, err error) {
+	return c.Do("SADD", c.getKey(key), member)
+}
+
+// SMEMBERS 获取集合元素
+func (c *Cacher) SMembers(key string) (reply interface{}, err error) {
+	return c.Do("SMEMBERS", c.getKey(key))
+}
+
+// SADD 将一个 member 元素及值加入到集 key 当中。
+func (c *Cacher) SRem(key string, member string) (reply interface{}, err error) {
+	return c.Do("SREM", c.getKey(key), member)
+}
+
 /**
 Redis 有序集合和集合一样也是string类型元素的集合,且不允许重复的成员。
 不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。
