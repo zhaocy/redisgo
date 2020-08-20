@@ -143,6 +143,12 @@ func (c *Cacher) GetObject(key string, val interface{}) error {
 	return c.decode(reply, err, val)
 }
 
+
+//模糊查询
+func (c *Cacher) Keys(key string) (reply interface{}, err error) {
+	return c.Do("KEYS", c.getKey(key))
+}
+
 // Set 存并设置有效时长。时长的单位为秒。
 // 基础类型直接保存，其他用json.Marshal后转成string保存。
 func (c *Cacher) Set(key string, val interface{}, expire int64) error {
